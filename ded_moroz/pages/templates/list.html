@@ -1,0 +1,15 @@
+{% extends "index.html"%}
+{% load static %}
+
+{% block title %} My Blog {% endblock %}
+{% block content %}
+    <h1>My blog</h1>
+    {% for page in pages%}
+        <h2>
+            <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+        </h2>
+        <p class="date"> Published {{ page.publish }} by {{ page.author }}</p>
+        {{ page.body | truncatewords:30 |linebreaks }}
+    {% endfor %}
+    {% include "pagination.html" with page=my_pages %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "index.html"%}
+{% load static %}
+
+{% block title %} {{ page.title }} {% endblock %}
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <p class="date"> Published {{ page.publish }} by {{ page.author }}</p>
+        {{ page.body |linebreaks }}
+{% endblock %}

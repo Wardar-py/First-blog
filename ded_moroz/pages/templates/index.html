@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title%}<title>Dawn of War</title>{% endblock title%}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+
+
+{#    {% block css %}#}
+{#    {% endblock css%}#}
+</head>
+<body>
+{% block header%}
+    {% include "includes/header.html" %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    Nlcas
+                </div>
+            </div>
+        </div>
+{% endblock header%}
+
+
+<div id="content">
+{% block content%}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12" style="min-height: 120px ">
+                    <h1 style= "color: white; text-align:center">
+                    История игры Dawn Of War
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% for page in pages %}
+    <article>
+        <h1 style= "color: white"> {{page.title}}</h1>
+        <div class="text" >
+            <p style= "color: white">{{ page.text | truncatewords:20}}</p>
+        </div>
+    </article>
+    {% endfor %}
+{% endblock content%}
+</div>
+
+
+
+{
+
+{% block footer %}
+
+    {% include "includes/footer.html" %}
+
+{% endblock footer %}
+
+</body>
+</html>
